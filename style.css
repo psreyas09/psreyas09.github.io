@@ -22,6 +22,10 @@ body {
         padding-top: 72px; /* Set this to your header's height */
     }
     header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
         padding: 1rem 0 1rem 0;
     }
 }
@@ -139,16 +143,27 @@ nav a:hover {
         -webkit-backdrop-filter: blur(16px) saturate(180%);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
         position: absolute;
-        top: 60px; /* adjust as needed */
+        top: 100%;
         left: 0;
-        width: 100%;
+        width: 100vw;
         z-index: 100;
+        padding-bottom: 1rem;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s;
+        display: flex;
     }
-    nav ul li {
-        margin: 10px 0;
+    nav ul.open {
+        max-height: 400px; /* Adjust if you have more/less menu items */
+        opacity: 1;
+        transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s;
     }
-    header {
-        position: relative;
+    header h1 {
+        margin-top: 2.5rem; /* Push down to avoid overlap with menu icon */
+        font-size: 2rem;
+        padding: 0 2.5rem;
+        z-index: 1;
     }
 }
 
@@ -169,23 +184,44 @@ nav a:hover {
 @media (max-width: 600px) {
   .nav-toggle {
     display: block;
+    background: none;
+    border: none;
+    color: #eebbc3;
+    font-size: 2rem;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    z-index: 1100;
+    cursor: pointer;
   }
   nav ul {
-    display: none;
     flex-direction: column;
     align-items: center;
     background: rgba(35, 41, 70, 0.92);
     backdrop-filter: blur(16px) saturate(180%);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
     position: absolute;
-    top: 60px;
+    top: 100%;
     left: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 100;
     padding-bottom: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s;
+    display: flex;
   }
   nav ul.open {
-    display: flex;
+    max-height: 400px; /* Adjust if you have more/less menu items */
+    opacity: 1;
+    transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s;
+  }
+  header h1 {
+    margin-top: 2.5rem; /* Push down to avoid overlap with menu icon */
+    font-size: 2rem;
+    padding: 0 2.5rem;
+    z-index: 1;
   }
 }
 
