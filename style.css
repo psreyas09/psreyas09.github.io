@@ -1,0 +1,410 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    line-height: 1.6;
+    color: #eaeaea;
+    background: #16161a;
+    position: relative;
+    overflow-x: hidden;
+    /* Add padding for fixed header (see below) */
+    padding-top: 110px; /* Adjust if your header is taller/shorter */
+}
+
+/* Aurora Background */
+.aurora-bg {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.aurora-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.55;
+    animation: aurora-move 16s ease-in-out infinite alternate;
+    mix-blend-mode: lighten;
+}
+
+.aurora-blob.one {
+    width: 60vw;
+    height: 60vw;
+    left: -20vw;
+    top: -10vw;
+    background: linear-gradient(120deg, #a5b4fc 0%, #eebbc3 100%);
+    animation-delay: 0s;
+}
+.aurora-blob.two {
+    width: 50vw;
+    height: 50vw;
+    right: -15vw;
+    top: 20vh;
+    background: linear-gradient(120deg, #b8c1ec 0%, #232946 100%);
+    animation-delay: 4s;
+}
+.aurora-blob.three {
+    width: 40vw;
+    height: 40vw;
+    left: 10vw;
+    bottom: -10vw;
+    background: linear-gradient(120deg, #eebbc3 0%, #a5b4fc 100%);
+    animation-delay: 8s;
+}
+
+@keyframes aurora-move {
+    0% { transform: scale(1) translateY(0) translateX(0);}
+    100% { transform: scale(1.2) translateY(-40px) translateX(40px);}
+}
+
+header {
+    background: rgba(35, 41, 70, 0.75);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    color: #fff;
+    padding: 2rem 0 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(35,41,70,0.18);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000;
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+nav a {
+    color: #b8c1ec;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 0.7rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+nav a:hover {
+    background: #eebbc3;
+    color: #232946;
+}
+
+section {
+    max-width: 700px;
+    margin: 2.5rem auto;
+    background: rgba(26, 26, 46, 0.75);
+    backdrop-filter: blur(8px) saturate(140%);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(79,70,229,0.07);
+    padding: 2rem 2.5rem;
+}
+
+h2 {
+    color: #eebbc3;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    border-bottom: 2px solid #b8c1ec;
+    display: inline-block;
+    padding-bottom: 0.2rem;
+}
+
+ul {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+li {
+    margin-bottom: 0.7rem;
+    font-size: 1.1rem;
+}
+
+#about p {
+    font-size: 1.15rem;
+    color: #b8c1ec;
+}
+
+#contact p {
+    margin-bottom: 0.7rem;
+}
+
+a {
+    color: #eebbc3;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #b8c1ec;
+}
+
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    display: inline-block;
+    background: #eebbc3;
+    color: #232946;
+    border-radius: 2rem;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    margin-right: 1rem;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: #b8c1ec;
+    color: #232946;
+}
+
+/* Shiny Text Animation for Social Buttons */
+.shiny-text {
+  position: relative;
+  display: inline-block;
+  color: #eebbc3;
+  background: #232946;
+  border-radius: 2rem;
+  padding: 0.6rem 1.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  overflow: hidden;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(35,41,70,0.18);
+}
+
+.shiny-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-20deg);
+}
+
+.shiny-text:hover::before {
+  animation: shiny-move 1s forwards;
+}
+
+@keyframes shiny-move {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+/* Experience & Roles Section */
+#experience .experience-block {
+    background: #232946;
+    border-left: 4px solid #eebbc3;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    border-radius: 0.7rem;
+    box-shadow: 0 2px 8px rgba(35,41,70,0.10);
+    transition: transform 0.2s;
+}
+#experience .experience-block:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 6px 24px rgba(238,187,195,0.10);
+}
+#experience h3 {
+    color: #b8c1ec;
+    margin-bottom: 0.7rem;
+    font-size: 1.2rem;
+}
+
+/* Events Section */
+#events .event-block {
+    background: #232946;
+    border-left: 4px solid #b8c1ec;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    border-radius: 0.7rem;
+    box-shadow: 0 2px 8px rgba(35,41,70,0.10);
+    transition: transform 0.2s;
+}
+#events .event-block:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 6px 24px rgba(184,193,236,0.10);
+}
+#events h3 {
+    color: #eebbc3;
+    margin-bottom: 0.7rem;
+    font-size: 1.15rem;
+}
+
+/* Skills Section */
+#skills ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+#skills li {
+    background: #232946;
+    border-radius: 0.7rem;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0;
+    color: #b8c1ec;
+    box-shadow: 0 2px 8px rgba(35,41,70,0.08);
+    font-size: 1rem;
+}
+#skills strong {
+    color: #eebbc3;
+}
+
+/* Sticky and auto-hide navigation bar */
+
+
+/* Hide header by default when scrolled down */
+header.hide-navbar {
+    transform: translateY(-100%);
+}
+
+/* Show header when hovered */
+/* header:hover {
+    transform: translateY(0) !important;
+} */
+
+/* Card Component */
+.card {
+    background: #232946;
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(35,41,70,0.15);
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 6px 24px rgba(238,187,195,0.10);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    section {
+        padding: 1.2rem 1rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    nav ul {
+        gap: 1rem;
+    }
+}
+
+/* Responsive for new sections */
+@media (max-width: 700px) {
+    #skills ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+.scramble-text {
+    display: inline-block;
+    color: #eebbc3;
+    letter-spacing: 1px;
+    font-family: inherit;
+    position: relative;
+}
+
+.blur-text {
+  display: inline-block;
+  filter: blur(8px);
+  opacity: 0.7;
+  transition: filter 1s cubic-bezier(.25,1,.5,1), opacity 1s cubic-bezier(.25,1,.5,1);
+}
+.blur-text.visible {
+  filter: blur(0);
+  opacity: 1;
+}
+
+.falling-text span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-40px) scale(0.8) rotate(-10deg);
+  filter: blur(6px);
+  transition:
+    opacity 0.6s cubic-bezier(.25,1,.5,1),
+    transform 0.6s cubic-bezier(.25,1,.5,1),
+    filter 0.6s cubic-bezier(.25,1,.5,1);
+}
+.falling-text.visible span {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(0);
+  filter: blur(0);
+}
+
+.pressure-text {
+  display: inline-block;
+  transition: 
+    letter-spacing 0.3s cubic-bezier(.25,1,.5,1),
+    filter 0.3s cubic-bezier(.25,1,.5,1),
+    transform 0.3s cubic-bezier(.25,1,.5,1);
+  will-change: letter-spacing, filter, transform;
+  cursor: pointer;
+}
+.pressure-text.pressed,
+.pressure-text:hover {
+  letter-spacing: 0.25em;
+  filter: blur(2px) brightness(1.2);
+  transform: scale(1.08) skewX(-6deg);
+}
+
+.text-cursor {
+  display: inline-block;
+  border-right: 2.5px solid #eebbc3;
+  animation: blink-cursor 0.8s steps(1) infinite;
+  padding-right: 2px;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { border-color: #eebbc3; }
+  50% { border-color: transparent; }
+}
