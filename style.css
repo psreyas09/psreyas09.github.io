@@ -90,11 +90,18 @@ header h1 {
     letter-spacing: 2px;
 }
 
+/* Responsive navigation bar */
 nav ul {
-    list-style: none;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 2.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 10px;
 }
 
 nav a {
@@ -110,6 +117,25 @@ nav a {
 nav a:hover {
     background: #eebbc3;
     color: #232946;
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        background: rgba(255,255,255,0.95);
+        position: absolute;
+        top: 60px; /* adjust as needed */
+        left: 0;
+        width: 100%;
+        z-index: 100;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+    header {
+        position: relative;
+    }
 }
 
 section {
@@ -182,6 +208,12 @@ a:hover {
 .social-links a:hover {
     background: #b8c1ec;
     color: #232946;
+}
+
+@media (max-width: 600px) {
+    .social-links {
+        align-items: center;
+    }
 }
 
 /* Shiny Text Animation for Social Buttons */
@@ -397,14 +429,15 @@ html {
   transform: scale(1.08) skewX(-6deg);
 }
 
-.text-cursor {
-  display: inline-block;
-  border-right: 2.5px solid #eebbc3;
-  animation: blink-cursor 0.8s steps(1) infinite;
-  padding-right: 2px;
+/* Ensure header text is clear and not blurred */
+.pressure-text {
+    filter: none !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    /* Remove any blur effect */
 }
 
-@keyframes blink-cursor {
-  0%, 100% { border-color: #eebbc3; }
-  50% { border-color: transparent; }
+/* Make sure contact section is readable on mobile */
+#contact {
+    padding: 20px 10px;
+    word-break: break-word;
 }
