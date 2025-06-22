@@ -90,28 +90,29 @@ header h1 {
     letter-spacing: 2px;
 }
 
-/* Responsive navigation bar */
+/* Navigation styles */
 nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 nav ul li {
-    margin: 0 10px;
+  margin: 0;
 }
 
 nav a {
-    color: #b8c1ec;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1rem;
-    padding: 0.5rem 1.2rem;
-    border-radius: 0.7rem;
-    transition: background 0.2s, color 0.2s;
+  color: #eebbc3;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.7rem;
+  transition: background 0.2s, color 0.2s;
 }
 
 nav a:hover {
@@ -214,6 +215,19 @@ a:hover {
     .social-links {
         align-items: center;
     }
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+@media (max-width: 700px) {
+  .social-links {
+    align-items: center;
+  }
 }
 
 /* Shiny Text Animation for Social Buttons */
@@ -431,13 +445,26 @@ html {
 
 /* Ensure header text is clear and not blurred */
 .pressure-text {
-    filter: none !important;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    /* Remove any blur effect */
+  filter: none !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  /* Remove any blur effect */
 }
 
 /* Make sure contact section is readable on mobile */
 #contact {
-    padding: 20px 10px;
-    word-break: break-word;
+  padding: 20px 10px;
+  word-break: break-word;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+@media (max-width: 700px) {
+  .social-links {
+    align-items: center;
+  }
 }
