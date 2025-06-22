@@ -554,3 +554,23 @@ html {
     align-items: center;
   }
 }
+
+/* Gradient animated text effect for section headings */
+.gradient-text {
+  background: linear-gradient(90deg, #eebbc3, #b8c1ec, #a5b4fc, #eebbc3);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 3s linear infinite;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
