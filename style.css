@@ -19,7 +19,7 @@ body {
 
 @media (max-width: 600px) {
     body {
-        padding-top: 72px; /* Set this to your header's height */
+        padding-top: 99px; /* Set this to your header's height */
     }
     header {
         display: flex;
