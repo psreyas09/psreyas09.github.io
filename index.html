@@ -12,6 +12,9 @@
         <div class="aurora-blob three"></div>
     </div>
     <header>
+        <button class="nav-toggle" aria-label="Open navigation">
+            &#9776; <!-- Unicode hamburger icon -->
+        </button>
         <h1 class="pressure-text">Welcome to My Portfolio</h1>
         <nav>
             <ul>
@@ -141,5 +144,12 @@
     </div>
     </section>
     <script src="script.js"></script>
+    <script>
+      const navToggle = document.querySelector('.nav-toggle');
+      const navUl = document.querySelector('nav ul');
+      navToggle.addEventListener('click', () => {
+        navUl.classList.toggle('open');
+      });
+    </script>
 </body>
 </html>

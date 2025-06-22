@@ -152,6 +152,43 @@ nav a:hover {
     }
 }
 
+/* Hamburger button styles */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #eebbc3;
+  font-size: 2rem;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .nav-toggle {
+    display: block;
+  }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(35, 41, 70, 0.92);
+    backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding-bottom: 1rem;
+  }
+  nav ul.open {
+    display: flex;
+  }
+}
+
 section {
     max-width: 700px;
     margin: 2.5rem auto;
