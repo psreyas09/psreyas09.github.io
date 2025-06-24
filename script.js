@@ -84,6 +84,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    const navToggle = document.querySelector('.gooey-nav-toggle');
+    const gooeyNav = document.querySelector('.gooey-nav');
+    if (navToggle && gooeyNav) {
+        navToggle.addEventListener('click', () => {
+            gooeyNav.classList.toggle('open');
+        });
+        // Optional: close menu when a link is clicked (mobile UX)
+        gooeyNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                gooeyNav.classList.remove('open');
+            });
+        });
+    }
 });
 
 // Contact form submission

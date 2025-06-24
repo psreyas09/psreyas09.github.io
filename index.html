@@ -6,34 +6,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Gooey Nav SVG Filter -->
-  <svg style="display:none;">
-    <filter id="gooey">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-      <feColorMatrix in="blur" mode="matrix"
-        values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-        result="gooey" />
-      <feBlend in="SourceGraphic" in2="gooey" />
-    </filter>
-  </svg>
-
-  <!-- Gooey Navigation -->
-  <nav class="gooey-nav" style="filter:url(#gooey);">
-    <a href="#about" class="gooey-link">About</a>
-    <a href="#projects" class="gooey-link">Projects</a>
-    <a href="#experience" class="gooey-link">Experience</a>
-    <a href="#contact" class="gooey-link">Contact</a>
-  </nav>
-
     <div class="aurora-bg">
         <div class="aurora-blob one"></div>
         <div class="aurora-blob two"></div>
         <div class="aurora-blob three"></div>
     </div>
     <header>
-    
+        <button class="nav-toggle" aria-label="Open navigation">
+            &#9776; <!-- Unicode hamburger icon -->
+        </button>
         <h1 class="pressure-text">Welcome to My Portfolio</h1>
-        
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section id="about">
