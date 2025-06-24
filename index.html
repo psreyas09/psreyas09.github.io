@@ -201,32 +201,6 @@
         navUl.classList.toggle('open');
       });
     </script>
-    <script>
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-  const status = document.getElementById('form-status');
-  status.textContent = "Sending...";
-
-  try {
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, message })
-    });
-    const data = await res.json();
-    if (data.success) {
-      status.textContent = "Message sent!";
-      document.getElementById('contactForm').reset();
-    } else {
-      status.textContent = "Failed to send. Try again.";
-    }
-  } catch (err) {
-    status.textContent = "Error sending message.";
-  }
-});
-</script>
+    
 </body>
 </html>
