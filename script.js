@@ -59,6 +59,31 @@ document.addEventListener("DOMContentLoaded", () => {
             pressure.classList.remove('pressed');
         });
     }
+
+    // Contact form handler
+    const contactForm = document.getElementById('contactForm');
+    const status = document.getElementById('form-status');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            status.textContent = "Sending...";
+            try {
+                const res = await submitContactForm(name, email, message);
+                const data = await res.json();
+                if (data.success) {
+                    status.textContent = "Message sent!";
+                    contactForm.reset();
+                } else {
+                    status.textContent = "Failed to send. Try again.";
+                }
+            } catch (err) {
+                status.textContent = "Error sending message.";
+            }
+        });
+    }
 });
 
 // Contact form submission
